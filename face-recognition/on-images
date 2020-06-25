@@ -1,0 +1,13 @@
+import cv2 as cv
+
+FaceCascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
+image =cv.imread('BillGates.jpg')
+gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+face = FaceCascade.detectMultiScale(gray, 1.1, 4)
+
+for (x,y,z,h) in face:
+    cv.rectangle(image, (x,y),(x+z, y+h),(255,0,0),3)
+    font = cv.FONT_ITALIC
+    cv.putText(image,' face',(x,y),font,3,(255,255,255),3,cv.LINE_AA)
+cv.imshow('face', image)
+cv.waitKey()
