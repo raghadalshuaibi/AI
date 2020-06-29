@@ -1,0 +1,12 @@
+import requests
+
+r= requests.get('https://github.com/raghadalshuaibi')
+
+#to read the content of a URL
+print(r.text)
+print(r.content)
+print(r.headers['content-type'])
+print(r.encoding)
+print(r.status_code)
+print(r.reason)
+print(r.next)
